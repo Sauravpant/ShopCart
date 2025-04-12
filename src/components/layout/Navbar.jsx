@@ -64,7 +64,7 @@ ${
             Home
           </NavLink>
           <NavLink
-            to="/categories"
+            to="/products"
             className={({ isActive }) => `
 px-4 py-2 transition-all
 ${
@@ -74,7 +74,7 @@ ${
 }
 `}
           >
-            Categories
+            Products
           </NavLink>
           <NavLink
             to="/categories"
@@ -87,7 +87,7 @@ ${
 }
 `}
           >
-            Collections
+            Categories
           </NavLink>
           {auth.user && (
             <Link to="/" className="hover:text-gray-200">

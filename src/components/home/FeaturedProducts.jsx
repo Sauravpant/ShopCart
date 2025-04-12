@@ -1,7 +1,7 @@
-import ProductCard from "../common/ProductCard";
 import shoes from "../../assets/images/shoes.png"
 import tshirt from "../../assets/images/tshirt.png"
 import headphone from "../../assets/images/headphone.png"
+import SampleProductCard from "../common/SampleProductCard";
 const FeaturedProducts = () => {
   const products = [
     {
@@ -35,7 +35,7 @@ const FeaturedProducts = () => {
       <h1 className="text-3xl font-bold mb-8 text-center">Suggested for you</h1>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {products.map(product => (
-          <ProductCard key={product.id} product={product} />
+          <SampleProductCard key={product.id} product={product} />
         ))}
       </div>
     </div>
