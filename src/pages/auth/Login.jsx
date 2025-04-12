@@ -1,10 +1,11 @@
-import React, { useRef, useState } from "react";
-import {Link} from "react-router-dom"
+import React, { useEffect, useRef, useState } from "react";
+import {Link, useNavigate} from "react-router-dom"
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
 import { useAuth } from "../../features/auth/authHooks";
 
 const Login = () => {
+  const naviagate=useNavigate();
   const emailRef = useRef();
   const passRef = useRef();
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -18,6 +19,12 @@ const Login = () => {
     await loginWithEmail(email, password);
   };
 
+  useEffect(()=> {
+    if(auth.user)
+    naviagate('/');
+
+  },[auth.user,naviagate])
+  
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-500 via-gray-700 to-gray-900 px-4">
       <div className="relative bg-gray-800 text-white shadow-lg rounded-lg p-10 max-w-md w-full border border-gray-700 hover:shadow-[0_0_25px_5px_rgba(56,140,248,1)] transition duration-300">
