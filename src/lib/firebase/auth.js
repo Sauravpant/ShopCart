@@ -4,7 +4,7 @@ import { app } from "./config";
 const auth =getAuth(app);
 const provider = new GoogleAuthProvider();
 
-export const signUpWithEmail = async (auth,email,password) => {
+export const signUpWithEmail = async (email,password) => {
   try{
     const userCredential= await createUserWithEmailAndPassword(auth, email, password);
     return userCredential.user;
@@ -14,7 +14,7 @@ export const signUpWithEmail = async (auth,email,password) => {
   }
 }
 
-export const signInWithEmail = async (auth,email,password) => {
+export const signInWithEmail = async (email,password) => {
   try{
     const userCredential= await signInWithEmailAndPassword(auth, email, password);
     return userCredential.user;
@@ -24,7 +24,7 @@ export const signInWithEmail = async (auth,email,password) => {
   }
 }
 
-export const googleLogin = async () => {
+export const signInWithGoogle = async () => {
   try {
     const result = await signInWithPopup(auth,provider);
     return result.user;
@@ -36,6 +36,6 @@ export const googleLogin = async () => {
   }
 }
 
-export const logout = async (auth) => {
+export const logout = async () => {
   await signOut(auth);
 }
