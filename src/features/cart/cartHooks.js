@@ -24,6 +24,6 @@ const useCart = () => {
   const totalPrice = items.reduce((acc, item) => acc + item.quantity * item.price, 0);
   const totalProducts = items.reduce((acc, item) => acc + item.quantity, 0);
 
-  return { handleAddToCart, handleRemoveFromCart, handleDecrementQuantity, handleClearCart, totalPrice, totalProducts };
+  return { handleAddToCart, handleRemoveFromCart, handleDecrementQuantity, handleClearCart, totalPrice, totalProducts,items };
 }
 export default useCart;

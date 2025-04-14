@@ -87,7 +87,7 @@ const Login = () => {
 
         <button
           onClick={loginWithGoogle}
-          className="mt-6 w-full flex items-center justify-center bg-gray-700 border border-gray-600 py-2 rounded-lg shadow-md hover:bg-gray-600 hover:shadow-lg transition-all duration-300 focus:ring focus:ring-cyan-300 focus:outline-none"
+          className="mt-6 w-full flex items-center justify-center cursor-pointer bg-gray-700 border border-gray-600 py-2 rounded-lg shadow-md hover:bg-gray-600 hover:shadow-lg transition-all duration-300 focus:ring focus:ring-cyan-300 focus:outline-none"
         >
           <FcGoogle className="h-6 w-6 mr-3" />
           Continue with Google

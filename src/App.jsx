@@ -1,12 +1,12 @@
-import { useState } from 'react'
-import "./styles/global.css"
-import AppRoutes from './routes/AppRoutes'
+import "./styles/global.css";
+import AppRoutes from "./routes/AppRoutes";
+import { SearchProvider } from "./store/SearchContext";
 function App() {
   return (
-    <>
-     <AppRoutes/>
-    </>
-  )
+    <SearchProvider>
+      <AppRoutes />
+    </SearchProvider>
+  );
 }
 
-export default App
+export default App;

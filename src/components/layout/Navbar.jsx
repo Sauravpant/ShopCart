@@ -5,15 +5,26 @@ import { useState } from "react";
 import { useAuth } from "../../features/auth/authHooks";
 import SearchBar from "./SearchBar";
 import logo from "../../assets/images/logo.png";
+import useCart from "../../features/cart/cartHooks";
 
 const Navbar = () => {
   const [lightMode, setLightMode] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { auth } = useAuth();
-  const cartItemsCount = 0;
+  const [userClicked, setUserClicked] = useState(false);
+  const { auth, logOutUserAction } = useAuth();
+  const { totalProducts } = useCart();
+  const cartItemsCount = totalProducts;
 
   const handleLightModeClick = () => {
     setLightMode(!lightMode);
+  };
+
+  const handleUserClick = () => {
+    setUserClicked(!userClicked);
+  };
+
+  const handleLogOutClick = async () => {
+    await logOutUserAction();
   };
 
   return (
@@ -42,8 +53,6 @@ const Navbar = () => {
             </button>
           </div>
         </div>
-
-        {/* SearchBar (Desktop only) */}
         <div className="hidden xl:flex flex-1 mx-8">
           <SearchBar />
         </div>
@@ -95,9 +104,9 @@ ${
             </Link>
           )}
 
-          <Link to="/" className="relative hover:text-gray-200">
+          <Link to="/cart" className="relative hover:text-gray-200">
             <FiShoppingCart className="h-6 w-6" />
-            {cartItemsCount > 0 && (
+            {cartItemsCount > 0 && auth.user && (
               <span className="absolute -top-2 -right-2 h-5 w-5 bg-pink-500 text-xs flex items-center justify-center rounded-full">
                 {cartItemsCount}
               </span>
@@ -106,15 +115,25 @@ ${
 
           <button onClick={handleLightModeClick}>
             {lightMode ? (
-              <MdLightMode className="h-6 w-6" />
+              <MdLightMode className="h-6 w-6 hover:cursor-pointer" />
             ) : (
-              <MdDarkMode className="h-6 w-6" />
+              <MdDarkMode className="h-6 w-6 hover:cursor-pointer" />
             )}
           </button>
 
           {auth.user ? (
             <Link to="/" className="hover:text-gray-200">
-              <FiUser className="h-6 w-6" />
+              <FiUser onClick={handleUserClick} className="h-6 w-6" />
+              {userClicked && (
+                <div className="absolute right-0 mt-2 bg-gray-800 border border-gray-700 rounded shadow-md z-50">
+                  <button
+                    onClick={handleLogOutClick}
+                    className="block w-full text-left px-4 py-2 text-white hover:bg-gray-700 cursor-pointer"
+                  >
+                    Logout
+                  </button>
+                </div>
+              )}
             </Link>
           ) : (
             <>
