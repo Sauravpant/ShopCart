@@ -5,13 +5,17 @@ import Home from "../pages/Home";
 import Error404 from "../pages/Error404";
 import Products from "../components/common/Products";
 import { MainLayout } from "../components/layout/MainLayout";
+import Search from "../pages/Search";
+import CartPage from "../pages/CartPage";
 const AppRoutes = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route element={<MainLayout />}>
           <Route path="/" element={<Home />} />
-          <Route path="/products" element={<Products/>}></Route>
+          <Route path="/products" element={<Products />}></Route>
+          <Route path="/cart" element={<CartPage />}></Route>
+          <Route path="/search" element={<Search />}></Route>
         </Route>
         <Route path="/auth/login" element={<Login />}></Route>
         <Route path="/auth/signup" element={<SignUp />}></Route>
