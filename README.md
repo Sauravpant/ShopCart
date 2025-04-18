@@ -1,12 +1,54 @@
-# React + Vite
+<h1 align="center" id="title">ShopCart</h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<p id="description">ShopCart is a modern e-commerce web application built with React Redux Toolkit Firebase authentication and responsive design. The app allows users to browse products manage a shopping cart and authenticate using email/password or Google sign-in. It's fully responsive and designed for both desktop and mobile devices.</p>
 
-Currently, two official plugins are available:
+  
+  
+<h2>🧐 Features</h2>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Here're some of the project's best features:
 
-## Expanding the ESLint configuration
+*   Authentication: Users can sign up and log in using email/password or Google sign-in with Firebase Authentication.
+*   Product Listings: Browse and filter through a range of products.
+*   Search Functionality: A search bar to filter products by name or category
+*   Cart Management: Add remove and adjust the quantity of items in the cart.
+*   Categories: Browse products by category with an option to view more items
+*   Responsive Design: The app is designed to work seamlessly on both desktop and mobile devices.
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+<h2>🛠️ Installation Steps:</h2>
+
+<p>1. Clone the Repository</p>
+
+```
+git clone git@github.com:Sauravpant/ShopCart.git
+```
+
+<p>2. Navigate to Project folder</p>
+
+```
+cd ShopCart
+```
+
+<p>3. Install Dependencies</p>
+
+```
+npm install
+```
+
+<p>4. Setup Firebase with required credentials</p>
+
+<p>5. Run the App</p>
+
+```
+npm run dev
+```
+  
+<h2>💻 Built with</h2>
+
+Technologies used in the project:
+
+*   JavaScript
+*   React
+*   Firebase
+*   Redux Toolkit
+*   Tailwind CSS
