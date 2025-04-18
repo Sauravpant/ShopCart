@@ -30,7 +30,6 @@ const Navbar = () => {
   return (
     <nav className="bg-gray-900 text-white w-full">
       <div className="flex items-center justify-between px-4 py-4 md:px-8">
-        {/* Logo and Cart/Toggler (Mobile) */}
         <div className="flex items-center space-x-4">
           <Link to="/" className="flex items-center">
             <img src={logo} alt="ShopCart Logo" className="h-10 w-auto" />
@@ -53,11 +52,12 @@ const Navbar = () => {
             </button>
           </div>
         </div>
+
+        {/* SearchBar for desktop */}
         <div className="hidden xl:flex flex-1 mx-8">
           <SearchBar />
         </div>
 
-        {/* Nav Items (Desktop only) */}
         <div className="hidden xl:flex items-center space-x-6">
           <NavLink
             to="/"
@@ -99,7 +99,7 @@ ${
             Categories
           </NavLink>
           {auth.user && (
-            <Link to="/" className="hover:text-gray-200">
+            <Link to="/orders" className="hover:text-gray-200">
               Orders
             </Link>
           )}
@@ -150,7 +150,6 @@ ${
           )}
         </div>
 
-        {/* Hamburger Menu */}
         <button
           className="xl:hidden ml-2"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -163,7 +162,11 @@ ${
         </button>
       </div>
 
-      {/* Hamburger Dropdown (Mobile only) */}
+      {/* SearchBar for mobile */}
+      <div className="xl:hidden px-4 pb-4">
+        <SearchBar />
+      </div>
+
       {mobileMenuOpen && (
         <div className="xl:hidden bg-gray-800 py-4 px-6 z-50">
           <ul className="flex flex-col space-y-4">
@@ -173,23 +176,21 @@ ${
               </Link>
             </li>
             <li>
+              <Link to="/products" onClick={() => setMobileMenuOpen(false)}>
+                Products
+              </Link>
+            </li>
+            <li>
               <Link to="/categories" onClick={() => setMobileMenuOpen(false)}>
                 Categories
               </Link>
             </li>
-            <li>
-              <Link to="/" onClick={() => setMobileMenuOpen(false)}>
-                Collections
-              </Link>
-            </li>
             {auth.user && (
-              <>
-                <li>
-                  <Link to="/" onClick={() => setMobileMenuOpen(false)}>
-                    Orders
-                  </Link>
-                </li>
-              </>
+              <li>
+                <Link to="/orders" onClick={() => setMobileMenuOpen(false)}>
+                  Orders
+                </Link>
+              </li>
             )}
             {!auth.user && (
               <>

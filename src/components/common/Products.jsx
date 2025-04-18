@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Loading from "../../pages/Loading";
 import ProductCard from "./ProductCard.jsx";
 import { useDispatch, useSelector } from "react-redux";
-import { setProducts } from "../../features/filters/productSLice.js";
+import { setProducts } from "../../features/filters/productSlice.js";
 import useProduct from "../../features/filters/productHooks.js";
 
 const Products = () => {
@@ -50,7 +50,7 @@ const Products = () => {
   if (loading) return <Loading />;
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
+    <div className="max-w-9xl mx-auto px-4 sm:px-6 py-8">
       <h1 className="text-3xl lg:text-4xl md:text-4xl font-bold text-gray-800 text-center">
         Our Products
       </h1>

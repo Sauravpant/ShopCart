@@ -5,11 +5,13 @@ import { useNavigate } from "react-router-dom";
 import useCart from "../../features/cart/cartHooks";
 import { useAuth } from "../../features/auth/authHooks";
 import { useEffect, useState } from "react";
+
 const ProductCard = ({ product }) => {
   const [popup, setPopup] = useState(false);
   const { handleAddToCart } = useCart();
   const navigate = useNavigate();
   const { auth } = useAuth();
+
   const handleAddClick = () => {
     if (auth.user) {
       handleAddToCart(product);
@@ -18,6 +20,7 @@ const ProductCard = ({ product }) => {
       navigate("/auth/login");
     }
   };
+
   useEffect(() => {
     if (popup) {
       setTimeout(() => {
@@ -25,6 +28,7 @@ const ProductCard = ({ product }) => {
       }, 2000);
     }
   }, [popup]);
+
   return (
     <>
       {popup && (
@@ -34,16 +38,15 @@ const ProductCard = ({ product }) => {
           </Alert>
         </div>
       )}
-      <div className="w-full sm:w-[15rem] h-auto bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
-        {/* Image */}
+      <div className="w-full sm:w-[17rem] h-auto bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
         <div className="relative aspect-square overflow-hidden">
           <img
-            src={product.images[0]}
+            src={product.image || product.images[0]}
             alt={product.title}
-            className="w-full h-full object-cover hover:scale-105 transition-transform duration-500 hover:cursor-pointer"
+            className="w-full h-full object-contain hover:scale-105 transition-transform duration-500 hover:cursor-pointer"
           />
         </div>
-        <div className="p-4 space-y-2">
+        <div className="p-3 space-y-1.5">
           <div className="flex justify-between items-start">
             <h3 className="font-medium text-gray-900 text-sm line-clamp-1">
               {product.title}

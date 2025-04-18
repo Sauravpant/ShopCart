@@ -104,7 +104,7 @@ const CartPage = () => {
               <div className="mt-4 flex justify-end">
                 <button
                   onClick={handleClearCart}
-                  className="text-sm text-red-600 hover:text-red-800 flex items-center"
+                  className="text-sm text-red-600 hover:text-red-800 flex items-center cursor-pointer"
                 >
                   <FiTrash2 className="mr-1" /> Clear Entire Cart
                 </button>
@@ -141,7 +141,7 @@ const CartPage = () => {
                 </div>
 
                 <button
-                  className="mt-6 w-full bg-blue-600 text-white py-3 px-4 rounded-md hover:bg-blue-700 transition-colors"
+                  className="mt-6 w-full bg-blue-600 text-white py-3 px-4 rounded-md hover:bg-gray-700 cursor-pointer transition-colors"
                 >
                   Proceed to Checkout
                 </button>
