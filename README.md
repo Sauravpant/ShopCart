@@ -2,8 +2,13 @@
 
 <p id="description">ShopCart is a modern e-commerce web application built with React Redux Toolkit Firebase authentication and responsive design. The app allows users to browse products manage a shopping cart and authenticate using email/password or Google sign-in. It's fully responsive and designed for both desktop and mobile devices.</p>
 
-  
-  
+  <p align="center">
+  <video width="600" controls>
+    <source src="./public/demo.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</p>
+
 <h2>🧐 Features</h2>
 
 Here're some of the project's best features:
